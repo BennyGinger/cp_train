@@ -1,0 +1,4 @@
+[submodule "cp_runner/cellpose_kit"]
+	path = cp_runner/cellpose_kit
+	url = https://github.com/BennyGinger/Cellpose-kit.git
+	branch = fits
