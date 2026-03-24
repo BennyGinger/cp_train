@@ -7,8 +7,24 @@ authors = [
     { name = "Benoit Roux", email = "benoit.roux@gmail.com" }
 ]
 requires-python = ">=3.12, <3.13"
-dependencies = []
+dependencies = [
+    "cellpose-kit",
+    "cellpose[gui]>=4",
+    "progress-bar",
+    "torch==2.10.*",
+    "torchvision==0.25.*",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv.workspace]
+members = [
+    "cellpose_kit",
+    "progress_bar",
+]
+
+[tool.uv.sources]
+cellpose-kit = { workspace = true }
+progress-bar = { workspace = true }
