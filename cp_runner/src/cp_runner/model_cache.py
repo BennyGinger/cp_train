@@ -16,7 +16,7 @@ class SegmentModelCache:
         self._cache: dict[str, CellposeWrapper] = {}
         self._lock = threading.Lock()
 
-    def get_wrapper(self, segment_settings: dict) -> CellposeWrapper:
+    def get_wrapper(self, segment_settings: dict[str, Any]) -> CellposeWrapper:
         model_settings = self._extract_model_settings(segment_settings)
         key = self._make_key(model_settings)
 

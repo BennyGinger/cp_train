@@ -8,11 +8,11 @@ authors = [
 ]
 requires-python = ">=3.12, <3.13"
 dependencies = [
-    "cellpose-kit",
     "cellpose[gui]>=4",
-    "progress-bar",
+    "cellpose-kit",
     "torch==2.10.*",
     "torchvision==0.25.*",
+    "typer>=0.24.1",
 ]
 
 [build-system]
@@ -22,9 +22,7 @@ build-backend = "hatchling.build"
 [tool.uv.workspace]
 members = [
     "cellpose_kit",
-    "progress_bar",
 ]
 
 [tool.uv.sources]
 cellpose-kit = { workspace = true }
-progress-bar = { workspace = true }

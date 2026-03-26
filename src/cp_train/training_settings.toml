@@ -1,0 +1,15 @@
+[annotation]
+pretrained_model = "cpsam"
+diameter = 50
+flow_threshold = 0.4
+cellprob_threshold = 0.0
+do_3D = false
+stitch_threshold = 0.0
+
+[training]
+pretrained_model = "cyto3" # Or 'null' if you want to train from scratch
+model_name = "my_model"
+n_epochs = 300
+weight_decay = 1e-4
+learning_rate = 0.1
+SGD = true

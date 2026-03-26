@@ -2,7 +2,3 @@
 	path = cp_runner/cellpose_kit
 	url = https://github.com/BennyGinger/Cellpose-kit.git
 	branch = fits
-[submodule "cp_runner/progress_bar"]
-	path = cp_runner/progress_bar
-	url = https://github.com/BennyGinger/Progress_bar.git
-	branch = fits
