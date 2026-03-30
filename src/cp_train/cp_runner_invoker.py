@@ -3,8 +3,6 @@ import subprocess
 import sys
 
 
-
-
 def run_cp_runner(root_dir: Path, config_path: Path, ) -> None:
     
     python_path = _get_cp_runner_python()

@@ -26,3 +26,9 @@ members = [
 
 [tool.uv.sources]
 cellpose-kit = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "pandas>=3.0.1",
+    "scikit-image>=0.26.0",
+]

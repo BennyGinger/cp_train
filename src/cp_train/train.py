@@ -1,12 +1,10 @@
 from pathlib import Path
-import logging
 
 from cellpose import io, models, train
+import numpy as np
 
 from cp_train.model import TrainSettings
 
-
-logger = logging.getLogger(__name__)
 
 def run_training(train_dir: str | Path, test_dir: str | Path | None, train_settings: TrainSettings) -> Path:
     
@@ -37,9 +35,13 @@ def run_training(train_dir: str | Path, test_dir: str | Path | None, train_setti
         weight_decay=train_settings.weight_decay,
         save_path=Path(train_dir).parent.as_posix(),)
     
-    logger.debug(f"Final training loss: {train_losses[-1]:.4f}")
-    if test_losses is not None:
-        logger.debug(f"Final test loss: {test_losses[-1]:.4f}")
-        if train_losses[-1] > test_losses[0]:
-            logger.warning("Warning: Final training loss is higher than initial test loss, which may indicate overfitting.")
+    print(f"Train loss: {train_losses[0]:.4f} → {train_losses[-1]:.4f}")
+
+    if test_losses is not None and len(test_losses) > 0:
+        print(f"Test loss:  {test_losses[0]:.4f} → {test_losses[-1]:.4f}")
+        best_epoch = int(np.argmin(test_losses))
+        print(f"Best test loss at epoch {best_epoch}: {test_losses[best_epoch]:.4f}")
+        
+        if test_losses[-1] > min(test_losses):
+            print("Test loss worsened after best point → possible overfitting.")
     return Path(model_path)

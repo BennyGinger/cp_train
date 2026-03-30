@@ -1,5 +1,4 @@
 from pathlib import Path
-import logging
 import tomllib
 
 from cp_train.model import TrainSettings
@@ -7,8 +6,6 @@ from cp_train.model import TrainSettings
 
 EXPECTED_IMAGE_FILES = {".tif", ".tiff"}
 ALLOWED_SUBDIRS = {"train", "test", "models"}
-
-logger = logging.getLogger(__name__)
 
 # ------ Public API --------
 def resolve_train_test_dirs(root_dir: Path | str) -> tuple[Path, Path | None]:
